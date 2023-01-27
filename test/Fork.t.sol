@@ -18,8 +18,8 @@ contract EmptyTest_Fork is Test {
     IJBProjects JBProjects;
 
     function setUp() public {
-        uint256 forkId = vm.createSelectFork("https://rpc.ankr.com/eth"); // Will start on latest block by default
-        
+        vm.createSelectFork("https://rpc.ankr.com/eth"); // Will start on latest block by default
+
         // Collect the mainnet deployment addresses
         JBController = IJBController(
             stdJson.readAddress(
@@ -30,7 +30,9 @@ contract EmptyTest_Fork is Test {
 
         JBEthTerminal = IJBPayoutRedemptionPaymentTerminal(
             stdJson.readAddress(
-                vm.readFile("./node_modules/@jbx-protocol/juice-contracts-v3/deployments/mainnet/JBETHPaymentTerminal.json"),
+                vm.readFile(
+                    "./node_modules/@jbx-protocol/juice-contracts-v3/deployments/mainnet/JBETHPaymentTerminal.json"
+                ),
                 "address"
             )
         );

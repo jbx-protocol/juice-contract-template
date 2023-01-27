@@ -1,4 +1,4 @@
-name: juice-contracts-template-tests
+name: juice-contracts-template-lint
 on:
   pull_request:
     branches:
@@ -41,14 +41,5 @@ jobs:
         uses: onbjerg/foundry-toolchain@v1
         with:
           version: nightly
-      - name: Install JS dependencies
-        if: |
-          steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
-          steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile --prefer-offline
-      - name: install libraries
-        run: git submodule update --init
-      - name: Run tests
-        run: FOUNDRY_PROFILE=CI forge snapshot
-      - name: Check contract sizes
-        run: forge build --sizes
+      - name: Check linting
+        run: forge fmt --check
