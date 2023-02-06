@@ -18,7 +18,7 @@ Install the included dependencies (forge tests, Juice-contracts-V3, OZ) with `fo
 ## With Yarn
 If the dependency you would like to install has an NPM package, use `yarn add [package]` where [package] is the package name. This will install the dependency to `node_modules`. 
 
-Add the dependency path to `remappings.txt`. For example, the NPM package `jbx-protocol` is remapped as `@jbx-protocol/=node_modules/@jbx-protocol/=node_modules/@jbx-protocol/`.
+Add the dependency path to `remappings.txt`. For example, the NPM package `jbx-protocol` is remapped as `@jbx-protocol/=node_modules/@jbx-protocol/`.
 
 ## With Forge
 If the dependency you would like to install does not have an up-to-date NPM package, use `forge install [dependency]` where [dependency] is the path to the dependency repo. This will install the dependency to `/lib`. Forge manages dependencies using git submodules.
