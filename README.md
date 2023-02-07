@@ -16,16 +16,18 @@ Install the included dependencies (forge tests, Juice-contracts-V3, OZ) with `fo
 
 # Adding dependencies
 ## With Yarn
-If the dependency you would like to install has an NPM package, use `yarn add [package]` where [package] is the package name. This will install the dependency to `node_modules`. 
+If the dependency you would like to install has an NPM package, use `yarn add [package]` where [package] is the package name. This will install the dependency to `node_modules`.
 
-Add the dependency path to `remappings.txt`. For example, the NPM package `jbx-protocol` is remapped as `@jbx-protocol/=node_modules/@jbx-protocol/`.
+Tell forge to look for node libraries by adding `node_modules` to the `foundry.toml` by updating `libs` like so: `libs = ['lib', 'node_modules']`.
+
+Add dependencies to `remappings.txt` by running `forge remappings >> remappings.txt`. For example, the NPM package `jbx-protocol` is remapped as `@jbx-protocol/=node_modules/@jbx-protocol/`.
 
 ## With Forge
 If the dependency you would like to install does not have an up-to-date NPM package, use `forge install [dependency]` where [dependency] is the path to the dependency repo. This will install the dependency to `/lib`. Forge manages dependencies using git submodules.
 
-Add the dependency path to `remappings.txt`. For example, the forge dependency `ds-test` is remapped as `ds-test/=lib/ds-test/src/`.
+Run `forge remappings >> remappings.txt` to add the dependencies to `remappings.txt`. For example, the forge dependency `ds-test` is remapped as `ds-test/=lib/ds-test/src/`.
 
-If nested dependencies are not installing, try this workaround `git submodule update --init --recursive --force`.
+If nested dependencies are not installing, try this workaround `git submodule update --init --recursive --force`. Nested dependencies are dependencies of the dependencies you have installed. 
 
 More information on remappings is available in the Forge Book.
 
@@ -34,4 +36,6 @@ More information on remappings is available in the Forge Book.
 Run `yarn upgrade [package]`.
 
 ## With Forge
-Call `foundryup` to update forge. Call `foundry update [DEPENDENCY_NAME]` to update a dependency.
+Run `foundryup` to update forge. 
+
+Run `forge update` to update all dependencies, or run `forge update [dependency]` to 
