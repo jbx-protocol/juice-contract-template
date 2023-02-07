@@ -25,6 +25,8 @@ If the dependency you would like to install does not have an up-to-date NPM pack
 
 Add the dependency path to `remappings.txt`. For example, the forge dependency `ds-test` is remapped as `ds-test/=lib/ds-test/src/`.
 
+If nested dependencies are not installing, try this workaround `git submodule update --init --recursive --force`.
+
 More information on remappings is available in the Forge Book.
 
 # Updating dependencies
@@ -32,4 +34,4 @@ More information on remappings is available in the Forge Book.
 Run `yarn upgrade [package]`.
 
 ## With Forge
-Call `foundryup` to update forge, then call  `git submodule update --init --recursive --force`.
+Call `foundryup` to update forge. Call `foundry update [DEPENDENCY_NAME]` to update a dependency.
