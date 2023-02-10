@@ -25,7 +25,7 @@ Add dependencies to `remappings.txt` by running `forge remappings >> remappings.
 ## With Forge
 If the dependency you would like to install does not have an up-to-date NPM package, use `forge install [dependency]` where [dependency] is the path to the dependency repo. This will install the dependency to `/lib`. Forge manages dependencies using git submodules.
 
-Run `forge remappings >> remappings.txt` to add the dependencies to `remappings.txt`. For example, the forge dependency `ds-test` is remapped as `ds-test/=lib/ds-test/src/`.
+Run `forge remappings > remappings.txt` to write the dependencies to `remappings.txt`. Note that this will overwrite that file. 
 
 If nested dependencies are not installing, try this workaround `git submodule update --init --recursive --force`. Nested dependencies are dependencies of the dependencies you have installed. 
 
