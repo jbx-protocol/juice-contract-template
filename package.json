@@ -5,6 +5,7 @@
     "@paulrberg/contracts": "^3.7.0"
   },
   "scripts": {
+    "preinstall": "forge install",
     "test": "forge test",
     "test:fork": "FOUNDRY_PROFILE=CI forge test",
     "size": "forge build --sizes",
