@@ -14,7 +14,7 @@ Install Forge with `curl -L https://foundry.paradigm.xyz | bash`. If you already
 Follow the instructions in the [Yarn Docs](https://classic.yarnpkg.com/en/docs/install). People tend to use the latest version of Yarn 1 (not Yarn 2+).
 
 ## Install Included Dependencies
-Install the included dependencies (forge tests, Juice-contracts-V3, OZ) with `forge install && yarn install`.
+Install dependencies (forge tests, Juice-contracts-V3, OZ) via `yarn install` (the `preinstall` script will run `forge install` for you)
 
 # Adding dependencies
 ## With Yarn
