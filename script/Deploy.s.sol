@@ -15,7 +15,6 @@ contract DeployMainnet is Deploy {
     function setUp() public {}
 
     function run() public {
-        vm.broadcast();
         _run(); // TODO: Pass in param that are specific to the Mainnet environment.
     }
 }
@@ -24,7 +23,6 @@ contract DeployGoerli is Deploy {
     function setUp() public {}
 
     function run() public {
-        vm.broadcast();
         _run(); // TODO: Pass in param that are specific to the Mainnet environment.
     }
 }
