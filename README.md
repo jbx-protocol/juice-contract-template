@@ -1,68 +1,94 @@
 # juice-contract-template
-Template used to code juicy solidity stuff - includes forge, libs, etc. 
 
-This template is a good starting point for building solidity extensions to the Juicebox Protocol. Forking this template may help you to avoid submodule related dependency issues down the road.
+`juice-contract-template` is a starting point for building Solidity extensions to the [Juicebox protocol](https://docs.juicebox.money/dev/). This template includes `forge` and dependencies, and may help you avoid submodule-related dependency issues down the road.
 
-Do not push straight on main, rather create a new branch and open a PR - your reviewer will love you for this.
+Do not push straight on main. Create a new branch and open a PR – your reviewer will love you for this.
 
-# Getting started
-## Prerequisites
-### Install & Update Foundry
-Install Forge with `curl -L https://foundry.paradigm.xyz | bash`. If you already have Foundry installed, run `foundryup` to update to the latest version. More detailed instructions can be found in the [Foundry Book](https://book.getfoundry.sh/getting-started/installation).
+## Dependencies
 
-### Install & Update Yarn
-Follow the instructions in the [Yarn Docs](https://classic.yarnpkg.com/en/docs/install). People tend to use the latest version of Yarn 1 (not Yarn 2+).
+`juice-contract-template` uses the Foundry smart contract development toolchain. To install Foundry, open your terminal and run the following command:
 
-## Install Included Dependencies
-Install dependencies (forge tests, Juice-contracts-V3, OZ) via `yarn install` (the `preinstall` script will run `forge install` for you)
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+```
 
-# Adding dependencies
-## With Yarn
-If the dependency you would like to install has an NPM package, use `yarn add [package]` where [package] is the package name. This will install the dependency to `node_modules`.
+Once you have Foundry installed, run `foundryup` to update to the latest versions of `forge`, `cast`, `anvil`, and `chisel`. More detailed instructions can be found in the [Foundry Book](https://book.getfoundry.sh/getting-started/installation).
 
-Tell forge to look for node libraries by adding `node_modules` to the `foundry.toml` by updating `libs` like so: `libs = ['lib', 'node_modules']`.
+`juice-contract-template` also uses [NPM](https://nodejs.org/en) to manage NPM dependencies.
 
-Add dependencies to `remappings.txt` by running `forge remappings >> remappings.txt`. For example, the NPM package `jbx-protocol` is remapped as `@jbx-protocol/=node_modules/@jbx-protocol/`.
+To install `forge` and `npm` dependencies, run:
 
-## With Forge
-If the dependency you would like to install does not have an up-to-date NPM package, use `forge install [dependency]` where [dependency] is the path to the dependency repo. This will install the dependency to `/lib`. Forge manages dependencies using git submodules.
+```bash
+forge install && npm install
+```
 
-Run `forge remappings > remappings.txt` to write the dependencies to `remappings.txt`. Note that this will overwrite that file. 
+## Adding NPM Dependencies
 
-If nested dependencies are not installing, try this workaround `git submodule update --init --recursive --force`. Nested dependencies are dependencies of the dependencies you have installed. 
+To add an NPM dependency, run:
 
-More information on remappings is available in the Forge Book.
+```bash
+npm add <package-name>
+```
 
-# Updating dependencies
-## With Yarn
-Run `yarn upgrade [package]`.
+Where `<package-name>` is the name of the dependency you'd like to add. Add dependencies to `remappings.txt` by running `forge remappings >> remappings.txt`. For example, the NPM package `jbx-protocol` is remapped as `@jbx-protocol/=node_modules/@jbx-protocol/`.
 
-## With Forge
-Run `foundryup` to update forge. 
+To upgrade an NPM dependency, run:
 
-Run `forge update` to update all dependencies, or run `forge update [dependency]` to update a specific dependency.
+```bash
+npm upgrade <package>
+```
 
-# Usage
-use `yarn test` to run tests
+## Adding forge Dependencies
 
-use `yarn test:fork` to run tests in CI mode (including slower mainnet fork tests)
+If the dependency you would like to install does not have an up-to-date NPM package, run:
 
-use `yarn size` to check contract size
+```bash
+forge install <dependency-url>
+```
 
-use `yarn doc` to generate natspec docs
+where `<dependency-url>` is the dependency's Git URL or GitHub path. This will install the dependency to `/lib`. Forge manages dependencies using git submodules. Learn more about `forge install` in the [Foundry Book](https://book.getfoundry.sh/reference/forge/forge-install).
 
-use `yarn lint` to lint the code
+If nested dependencies are not installing, try running:
 
-use `yarn tree` to generate a Solidity dependency tree
+```bash
+git submodule update --init --recursive --force
+```
 
-use `yarn deploy:mainnet` and `yarn deploy:goerli` to deploy and verify (see .env.example for required env vars, using a ledger by default).
+Nested dependencies are dependencies of other dependencies you have installed.
 
-## Code coverage
-Run `yarn coverage`to display code coverage summary and generate an LCOV report
+Run `forge remappings > remappings.txt` to write the dependencies to `remappings.txt`. Note that this will overwrite that file. Learn about remappings in the [Foundry Book](https://book.getfoundry.sh/reference/forge/forge-remappings).
 
-To display code coverage in VSCode:
-- You need to install the [coverage gutters extension (Ryan Luker)](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) or any other extension handling LCOV reports
-- ctrl shift p > "Coverage Gutters: Display Coverage" (coverage are the colored markdown lines in the left gutter, after the line numbers)
+To update forge dependencies, run one or more of the following commands:
+
+```bash
+foundryup # Update forge
+forge update <dependency-name> # Update one dependency
+forge update # Update all dependencies
+```
+
+## Scripts
+
+| Command                  | Description                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------- |
+| `npm run build`          | Build contracts using `forge`.                                                                    |
+| `npm run test`           | Run `forge` tests.                                                                                |
+| `npm run test:fork`      | Run tests in CI mode (including slower mainnet fork tests).                                       |
+| `npm run size`           | Check contract size.                                                                              |
+| `npm run doc`            | Generate natspec docs.                                                                            |
+| `npm run lint`           | Lint the code.                                                                                    |
+| `npm run tree`           | Generate a Solidity dependency tree.                                                              |
+| `npm run deploy:mainnet` | Deploy and verify on mainnet (see .env.example for required env vars, using a ledger by default). |
+| `npm run deploy:goerli`  | Deploy and verify on goerli (see .env.example for required env vars, using a ledger by default).  |
+| `npm run coverage`       | Display a code coverage summary and generate a LCOV report.                                       |
+
+You can also run `forge` commands. See the [Foundry Book](https://book.getfoundry.sh/reference/forge/) for a description.
+
+## Code Coverage
+
+Run `npm run coverage` to display code coverage summary and generate an LCOV report
+
+To display code coverage in VSCode, install [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) (Ryan Luker). In VSCode, press `F1` and run "Coverage Gutters: Display Coverage". Coverage will be displayed as colored markdown lines in the left gutter, after the line numbers.
 
 ## PR
+
 Github CI flow will run both unit and forked tests, log the contracts size (with the tests) and check linting compliance.

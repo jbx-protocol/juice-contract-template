@@ -7,7 +7,7 @@
     "@prb/math": "^4.0.0"
   },
   "scripts": {
-    "preinstall": "if [ \"$CI\" != \"true\" ]; then forge install; fi",
+    "build": "forge build",
     "test": "forge test",
     "test:fork": "FOUNDRY_PROFILE=CI forge test",
     "size": "forge build --sizes",
