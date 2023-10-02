@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 contract Empty {
-    constructor() {}
+    constructor() { }
 
-    function empty() external {}
+    function empty() external { }
 }

@@ -1,8 +1,9 @@
 .env
-.vscode
+node_modules
 cache/
-node_modules/
 *.txt
-.DS_Store
 lib/forge-std/
-yarn-error.log
+npm-debug.log*
+.vscode/*
+!.vscode/extensions.json
+.DS_Store

@@ -5,7 +5,7 @@ import "forge-std/Test.sol";
 import "../src/Empty.sol";
 
 contract EmptyTest_Unit is Test {
-    function setUp() public {}
+    function setUp() public { }
 
     function testTest() public {
         Empty empty = new Empty();
