@@ -12,7 +12,7 @@ contract Deploy is Script {
 }
 
 contract DeployMainnet is Deploy {
-    function setUp() public {}
+    function setUp() public { }
 
     function run() public {
         _run(); // TODO: Pass in param that are specific to the Mainnet environment.
@@ -20,7 +20,7 @@ contract DeployMainnet is Deploy {
 }
 
 contract DeployGoerli is Deploy {
-    function setUp() public {}
+    function setUp() public { }
 
     function run() public {
         _run(); // TODO: Pass in param that are specific to the Mainnet environment.
