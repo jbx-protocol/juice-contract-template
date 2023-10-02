@@ -83,11 +83,9 @@ forge update # Update all dependencies
 
 You can also run `forge` commands. See the [Foundry Book](https://book.getfoundry.sh/reference/forge/) for a description.
 
-## Code Coverage
+## Editor
 
-Run `npm run coverage` to display code coverage summary and generate an LCOV report
-
-To display code coverage in VSCode, install [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) (Ryan Luker). In VSCode, press `F1` and run "Coverage Gutters: Display Coverage". Coverage will be displayed as colored markdown lines in the left gutter, after the line numbers.
+We recommend using [VSCode](https://code.visualstudio.com/) with Juan Blanco's [solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) extension. To display code coverage in VSCode, install [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) (Ryan Luker). In VSCode, press `F1` and run "Coverage Gutters: Display Coverage". Coverage will be displayed as colored markdown lines in the left gutter, after the line numbers.
 
 ## PR
 
