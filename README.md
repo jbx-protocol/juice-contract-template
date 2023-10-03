@@ -24,7 +24,7 @@ forge install && npm install
 
 ## Adding NPM Dependencies
 
-To add an NPM dependency to package.json, run:
+To add an NPM dependency to `package.json`, run:
 
 ```bash
 npm add <package-name>
@@ -32,7 +32,7 @@ npm add <package-name>
 
 Where `<package-name>` is the name of the dependency you'd like to add. Add dependencies to `remappings.txt` by running `forge remappings >> remappings.txt`. For example, the NPM package `jbx-protocol` is remapped as `@jbx-protocol/=node_modules/@jbx-protocol/`.
 
-To upgrade an NPM dependency, run:
+To upgrade an NPM dependency in `package.json`, run:
 
 ```bash
 npm upgrade <package>
