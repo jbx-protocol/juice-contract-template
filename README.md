@@ -24,7 +24,7 @@ forge install && npm install
 
 ## Adding NPM Dependencies
 
-To add an NPM dependency, run:
+To add an NPM dependency to package.json, run:
 
 ```bash
 npm add <package-name>
